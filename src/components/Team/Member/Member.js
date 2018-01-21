@@ -7,6 +7,7 @@ const Member = ({
   teamId,
   saveMember,
   randomPosition,
+  removeMember,
   onTyping,
   positions
 }) => {
@@ -16,12 +17,12 @@ const Member = ({
           { member.saved ? (
             <CardBody>
               <div className="d-flex justify-content-between">
-              <div>
-              <CardTitle>{member.name}</CardTitle>
-              <CardText>{positions[member.position]}</CardText>
-              <Button onClick={() => saveMember(member.id, teamId)}>Edit</Button>
-
-              </div>
+                <div>
+                  <CardTitle>{member.name}</CardTitle>
+                  <CardText>{positions[member.position]}</CardText>
+                  <Button onClick={() => saveMember(member.id, teamId)}>Edit</Button>
+                  <Button onClick={() => removeMember(member.id, teamId)} className="ml-2" color="danger"> <i className="fa fa-close"></i> </Button>
+                </div>
               <Hero className="card-img-top" hero={member.heroe} />
               </div>
             </CardBody>

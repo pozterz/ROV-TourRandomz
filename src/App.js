@@ -115,6 +115,22 @@ class App extends Component {
     }
   }
 
+  removeMember = (id, team) => {
+    const { teamA, teamB } = this.state
+    
+    if(team === 1){
+      teamA.members = teamA.members.filter(member => member.id !== id)
+      this.setState({
+        teamA
+      })
+    } else {
+      teamB.members = teamB.members.filter(member => member.id !== id)
+      this.setState({
+        teamB
+      })
+    }
+  }
+
   randomHero =  () => {
     const { herolist, samehero, teamA, teamB } = this.state
     this.randomAlgor(teamA.members, teamB.members, herolist, samehero)
@@ -296,6 +312,7 @@ class App extends Component {
               onTyping={this.onTyping.bind(this)}
               saveMember={this.saveMember.bind(this)}
               randomPosition={this.randomPosition.bind(this)}
+              removeMember={this.removeMember.bind(this)}
               key={teamA.id}
               positions={positions}
               data={teamA}
@@ -320,6 +337,7 @@ class App extends Component {
               onTyping={this.onTyping.bind(this)}
               saveMember={this.saveMember.bind(this)}
               randomPosition={this.randomPosition.bind(this)}
+              removeMember={this.removeMember.bind(this)}
               key={teamB.id}
               positions={positions}
               data={teamB}

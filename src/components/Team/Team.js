@@ -7,6 +7,7 @@ const Team = ({
   positions,
   onTyping,
   randomPosition,
+  removeMember,
   saveMember,
   addMember
 }) => {
@@ -21,7 +22,7 @@ const Team = ({
       <div className="mt-4">
         {
           data.members ? data.members.map(member => {
-            return <Member teamId={data.id} positions={positions} onTyping={onTyping} saveMember={saveMember} randomPosition={randomPosition} key={member.id} member={member} />
+            return <Member teamId={data.id} positions={positions} onTyping={onTyping} removeMember={removeMember} saveMember={saveMember} randomPosition={randomPosition} key={member.id} member={member} />
           }) : ''
         }
       </div>
