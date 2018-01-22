@@ -1,16 +1,22 @@
 import React from 'react'
 
+const renderImage = (hero, banHero, isBanned) => {
+  if(hero.heroid !== undefined) {
+    return (
+      <div className="relative" onClick={e => banHero(e, hero.heroid, isBanned)} style={{backgroundImage: `url('https://www.arenaofvalor.com/images/heroes/pic_122_122/${hero.heroid}.jpg')`}}>
+        { isBanned ? <div className="banned"> <i className="fa fa-close fa-5x danger"></i> </div>: ''}
+      </div>
+    )
+  }
+  return ''
+}
+
 const Hero = ({
   hero,
   banHero,
   isBanned
 }) => {
-  return (
-    <div className="relative" onClick={e => banHero(e, hero.heroid, isBanned)} >
-      { isBanned ? <div className="banned"> <i className="fa fa-close fa-5x danger"></i> </div>: ''}
-      { hero ? <img className="relative" src={`https://www.arenaofvalor.com/images/heroes/pic_122_122/${hero.heroid || ''}.jpg`} alt={hero.name} width={90} /> : 'No Hero available' }
-    </div>
-  )
+  return hero ? renderImage(hero, banHero, isBanned) : 'No hero available.'
 }
 
 export default Hero

@@ -19,4 +19,8 @@ body {
 
 .relative {
   position: relative;
+  background-size: cover;
+  background-position: center;
+  height: 80px;
+  width: 80px;
 }
